@@ -1,15 +1,41 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import './App.css';
+import {currentCurrencyType, InitialStateType, setCurrencyAC} from "../bll/reducers/currency-reducer";
+import {AppRootStateType} from "../bll/store";
 
-function App() {
+type AppPropsType = MapStateType & MapDispatchType
 
-  return (
-    <div className="App">
+class App extends React.PureComponent<AppPropsType> {
+  constructor(props: AppPropsType) {
+      super(props)
+  }
+
+  render() {
+    const  {
+      currentCurrency
+    } = this.props
+
+    return (
       <div>
-        Hello World
+        {currentCurrency}
       </div>
-    </div>
-  );
+    )
+  }
+}
+type MapStateType = InitialStateType
+
+const mapState = (state: AppRootStateType): MapStateType =>({
+  currentCurrency: state.currentCurrency.currentCurrency
+})
+type MapDispatchType = {
+  setCurrencyAC: (currency: currentCurrencyType) => void
 }
 
-export default App;
+const mapDispatch = {
+  setCurrencyAC
+}
+
+export default connect(mapState, mapDispatch)(App);
+
+
