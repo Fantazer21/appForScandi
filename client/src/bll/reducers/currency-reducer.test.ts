@@ -1,14 +1,14 @@
-import {currencyReducer, currentCurrencyType, InitialStateType, setCurrencyAC} from "./currency-reducer";
+import {currencyReducer, CurrenciesType, InitialStateType, setCurrenciesAC} from "./currency-reducer";
 
 let startState: InitialStateType
 beforeEach(() => {
   startState = {
-    currentCurrency: 'USD',
+    currencies: 'USD',
   }
 })
 test(('Currency reducer should work correctly'), () => {
-  const action = setCurrencyAC('GBP')
+  const action = setCurrenciesAC('GBP')
   const endState = currencyReducer(startState, action)
 
-  expect(endState.currentCurrency).toBe('GBP')
+  expect(endState.currencies).toBe('GBP')
 })
