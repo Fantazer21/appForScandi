@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.navigation {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+}
+.logo {
+    width: 31px;
+    height: 28px;
+}
+.cart {
+    width: 20px;
+    height: 13px;
+}
+.currency {
+    width: 12px;
+    height: 29px;
+}

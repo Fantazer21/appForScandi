@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import './App.css';
 import {setCurrenciesThunkCreator} from "../bll/reducers/currency-reducer";
 import {AppRootStateType} from "../bll/store";
-import {Header} from "./Header";
+import {Header} from "./Header/Header";
 import {setCategoriesThunkCreator} from "../bll/reducers/categories-reducer";
 
 type AppPropsType = MapStateType & MapDispatchType
@@ -24,8 +24,12 @@ class App extends React.PureComponent<AppPropsType> {
     } = this.props
 
     return (
-      <Header categories={categories}
-              currencies={currencies}/>
+      <>
+        <Header categories={categories}
+                currencies={currencies}/>
+
+      </>
+
     )
   }
 }
