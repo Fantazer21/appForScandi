@@ -1,4 +1,4 @@
-import {currencyReducer, CurrenciesType, InitialStateType, setCurrenciesAC} from "./currency-reducer";
+import {currencyReducer, CurrenciesArrayType, InitialStateType, setCurrenciesAC} from "./currency-reducer";
 
 let startState: InitialStateType
 beforeEach(() => {
