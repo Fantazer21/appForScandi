@@ -8,7 +8,7 @@ type InitialStateType = {
 let startState: InitialStateType
 beforeEach(() => {
   startState = {
-    categories: [],
+    categoriesName: [],
     activeCategory: false,
   }
 })
@@ -19,8 +19,8 @@ test(('Categories reducer should work correctly'), () => {
   const actionSetActiveCategories = setActiveCategoryAC(true)
   const endState2 = categoriesReducer(startState, actionSetActiveCategories)
 
-  expect(endState1.categories).toStrictEqual(['name', 'category'])
-  expect(endState1.categories[0]).toBe('name')
+  expect(endState1.categoriesName).toStrictEqual(['name', 'category'])
+  expect(endState1.categoriesName[0]).toBe('name')
   expect(endState2.activeCategory).toBe(true)
 
 })

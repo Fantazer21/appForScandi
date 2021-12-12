@@ -4,8 +4,9 @@
 }
 .navigation {
     display: flex;
+    justify-content: space-between;
     list-style-type: none;
-    justify-content: space-around;
+    text-decoration: none;
 }
 .logo {
     width: 31px;
