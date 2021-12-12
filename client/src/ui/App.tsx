@@ -16,7 +16,7 @@ import {
   setCategoriesThunkCreator
 } from "../bll/reducers/categories-reducer";
 import {Route, Routes} from 'react-router-dom';
-import {Products} from "./Products";
+import {ProductItem} from "./ProductItem/ProductItem";
 
 
 type AppPropsType = MapStateType & MapDispatchType
@@ -44,20 +44,13 @@ class App extends React.PureComponent<AppPropsType> {
                 currencies={currencies}
                 setCurrentCurrencyAC={setCurrentCurrencyAC}
                 currentCurrency={currentCurrency}
-
         />
         <>CATEGORY NAME</>
         <main>
-          {/*instead of switch v5*/}
           <Routes>
-            <Route path='/' element={<Products currentCurrency={currentCurrency}
-                                               productsClothes={productsClothes}
-                                               productsTech={productsTech}/>}/>
-            <Route path='/products' element={<Products productsClothes={productsClothes}
-                                                       currentCurrency={currentCurrency}
-                                                       productsTech={productsTech}
-            />}/>
-            {/*<Route path = '*' element={<Error/>}/>*/}
+            <Route path='/' element={<ProductItem currentCurrency={currentCurrency} products={productsClothes}/>}/>
+            <Route path='/clothes' element={<ProductItem currentCurrency={currentCurrency} products={productsClothes}/>}/>
+            <Route path='/tech' element={<ProductItem currentCurrency={currentCurrency} products={productsTech}/>}/>
           </Routes>
         </main>
       </>

@@ -30,7 +30,7 @@ export class Header extends React.PureComponent<HeaderPropsType> {
         <nav>
           <ul className={styles.navigation}>
             {categoriesName.map((category: CategoryType, ind: number) => {
-              return <NavLink key={ind + 314} to={'/products'}>
+              return <NavLink key={ind + 314} to={`/${category.name}`}>
                 <li>{category.name}</li>
               </NavLink>
             })}
