@@ -5,9 +5,15 @@ import {ProductsType} from "../../bll/reducers/categories-reducer";
 type PdpPropsType = {
   currentCurrency: string
   proDesc: ProductsType
+  addToCart: (order: ProductsType) => void
 }
 
 export class Pdp extends React.PureComponent<PdpPropsType> {
+
+  addProductToCart(order: ProductsType) {
+    console.log(order)
+    this.props.addToCart(order)
+  }
 
   render() {
     const {currentCurrency, proDesc} = this.props
@@ -28,7 +34,7 @@ export class Pdp extends React.PureComponent<PdpPropsType> {
             <div>Size ????</div>
             <h3>Price</h3>
             <div>{currentCurrency} {proDesc.prices.find(pr => (pr.currency === currentCurrency)).amount} </div>
-            <button>Add to cart</button>
+            <button onClick={() => this.addProductToCart(proDesc)}>Add to cart</button>
             <div>{proDesc.description}</div>
 
           </div>

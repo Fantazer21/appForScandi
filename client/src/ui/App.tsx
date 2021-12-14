@@ -37,7 +37,7 @@ class App extends React.PureComponent<AppPropsType> {
 
   render() {
     const {
-      categoriesName, currencies, currentCurrency, setCurrentCurrencyAC, productsClothes, productsTech, setProductDescriptionAC, productDescription, cartOrders
+      categoriesName, currencies, currentCurrency, setCurrentCurrencyAC, productsClothes, productsTech, setProductDescriptionAC, productDescription, cartOrders, addToCartAC
     } = this.props
 
     return (
@@ -46,6 +46,7 @@ class App extends React.PureComponent<AppPropsType> {
                 currencies={currencies}
                 setCurrentCurrencyAC={setCurrentCurrencyAC}
                 currentCurrency={currentCurrency}
+                cartOrders={cartOrders}
         />
         <>CATEGORY NAME</>
         <main>
@@ -53,7 +54,7 @@ class App extends React.PureComponent<AppPropsType> {
             <Route path='/' element={<ProductItem currentCurrency={currentCurrency} products={productsClothes} setProductDescription={setProductDescriptionAC}/>}/>
             <Route path='/clothes' element={<ProductItem currentCurrency={currentCurrency} products={productsClothes} setProductDescription={setProductDescriptionAC}/>}/>
             <Route path='/tech' element={<ProductItem currentCurrency={currentCurrency} products={productsTech} setProductDescription={setProductDescriptionAC}/>}/>
-            <Route path='/pdp' element={<Pdp currentCurrency={currentCurrency} proDesc={productDescription}/>}/>
+            <Route path='/pdp' element={<Pdp currentCurrency={currentCurrency} proDesc={productDescription} addToCart={addToCartAC}/>}/>
           </Routes>
         </main>
       </>
