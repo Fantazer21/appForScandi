@@ -1,0 +1,10 @@
+.containerPdp {
+    display: flex;
+}
+.listImg {
+    display: flex;
+    flex-direction: column;
+}
+.productD {
+    display: flex;
+}
