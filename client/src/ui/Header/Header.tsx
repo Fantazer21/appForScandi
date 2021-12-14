@@ -4,6 +4,7 @@ import cart from '../../images/cart.png'
 import styles from './Header.module.css'
 import {NavLink} from "react-router-dom";
 import {CurrenciesNamesTypes} from "../../bll/reducers/currency-reducer";
+import {ProductsType} from "../../bll/reducers/categories-reducer";
 
 type CategoryType = {
   name: string
@@ -15,6 +16,7 @@ type HeaderPropsType = {
   currencies: Array<CurrenciesNamesTypes>,
   setCurrentCurrencyAC: (currency: CurrenciesNamesTypes) => void
   currentCurrency: CurrenciesNamesTypes,
+  cartOrders: Array<ProductsType>
 }
 
 export class Header extends React.PureComponent<HeaderPropsType> {
@@ -24,7 +26,8 @@ export class Header extends React.PureComponent<HeaderPropsType> {
   }
 
   render() {
-    const {categoriesName, currencies, currentCurrency} = this.props
+    const {categoriesName, currencies, currentCurrency, cartOrders} = this.props
+    console.log(cartOrders)
     return (
       <header className={styles.header}>
         <nav>
