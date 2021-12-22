@@ -9,6 +9,6 @@ export const query = async (newQuery: Query<string, boolean>) => {
 export enum request {
   getCategories = 'categories{name}',
   getCurrencies = 'currencies',
-  getProducts= 'categories{products{id,name,inStock,category,brand,gallery,description,prices {currency,amount}}}'
+  getProducts= 'categories{products{id,name,inStock,category,brand,gallery,description,prices {currency,amount},attributes{id,name,type,items{,id,displayValue,value}}}}'
 }
 

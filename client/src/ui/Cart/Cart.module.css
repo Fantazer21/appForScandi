@@ -1,0 +1,98 @@
+.image {
+    width: 354px ;
+    height: 330px;
+}
+.cartList {
+    display: flex;
+    flex-direction: column;
+}
+.CartProduct {
+    display: flex;
+    justify-content: space-between;
+}
+.CartProductTitle {
+    display: flex;
+    flex-direction: column;
+}
+.CartProductDescription {
+    display: flex;
+}
+.brandTitle {
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 27px;
+    margin-bottom: 16px;
+}
+.brandName {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 27px;
+    margin-bottom: 12px;
+}
+
+.currencyStyles {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 18px;
+    margin-bottom: 27px;
+}
+
+
+.attributesDescription {
+    display: flex;
+    flex-direction: column;
+}
+
+.spanItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 45px;
+    border: 1px solid #1D1F22;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.spanItem:hover {
+    background-color: black;
+    color: white;
+}
+
+.attributeMenu {
+    display: flex;
+}
+
+.Buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0px;
+}
+
+.buttonIncDec {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #1D1F22;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.quantityOrders {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 38px;
+}
+.rightSection {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    justify-content: space-between;
+}
+
+
+.imgDesc {
+    max-width: 185px;
+    max-height: 141px;
+}

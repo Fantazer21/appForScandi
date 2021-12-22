@@ -1,6 +1,8 @@
 .header {
     display: flex;
     justify-content: space-between;
+    margin: 30px 0px;
+    align-items: center;
 }
 .navigation {
     display: flex;
@@ -14,9 +16,42 @@
 }
 .cart {
     width: 20px;
-    height: 13px;
+    height: 20px;
 }
 .currency {
     width: 12px;
     height: 29px;
 }
+
+.headerActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 89px;
+}
+.navLink {
+    position: relative;
+    height: 20px;
+    margin-left: 32px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navLinkName {
+    color: black;
+    font-size: 16px;
+    height: 20px;
+    font-weight: 600;
+}
+.navLinkName.active {
+    color: #5ECE7B;
+}
+
+/*.navLinkName:hover .navLinkName:not(:hover) {*/
+/*    opacity: .2;*/
+/*}*/
+
+
+
+
