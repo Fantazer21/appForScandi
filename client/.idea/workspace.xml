@@ -3,19 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4ad5da21-5d76-471b-9b68-73c2d45e8d2e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/reducers/categories-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/reducers/categories-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/apiRequest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/apiRequest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Header/Header.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Pdp/Pdp.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Pdp/Pdp.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Pdp/Pdp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Pdp/Pdp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/ProductItem/ProductItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ProductItem/ProductItem.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/ProductItem/ProductItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ProductItem/ProductItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +24,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../scandiweb/src/components/CartModal/CartModal.tsx" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../scandiweb/src/components/Header/Header.tsx" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -51,7 +40,7 @@
       <option name="presentableId" value="Default" />
       <updated>1640168709481</updated>
       <workItem from="1640168711336" duration="871000" />
-      <workItem from="1640169609807" duration="5483000" />
+      <workItem from="1640169609807" duration="6837000" />
     </task>
     <servers />
   </component>

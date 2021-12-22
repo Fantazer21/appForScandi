@@ -47,10 +47,35 @@
 .navLinkName.active {
     color: #5ECE7B;
 }
+.select {
+    width: 56px;
+    height: 29px;
+}
 
-/*.navLinkName:hover .navLinkName:not(:hover) {*/
-/*    opacity: .2;*/
-/*}*/
+.cart {
+    position: relative;
+    font-family: 'Roboto','sans-serif';
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.cartImage {
+    padding-top: 5px;
+}
+
+.cartQuantity {
+    position: absolute;
+    top: -4px;
+    left: 11px;
+    width: 20px;
+    height: 20px;
+    background-color: #1D1F22;
+    color: #FFFFFF;
+    border-radius: 60px;
+}
 
 
 

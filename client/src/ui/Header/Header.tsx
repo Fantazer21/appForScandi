@@ -1,7 +1,7 @@
 import React, {FormEventHandler} from "react";
 import logo from '../../images/logo.png'
 import cart from '../../images/cart.png'
-import styles from './Header.module.css'
+import s from './Header.module.css'
 import {NavLink} from "react-router-dom";
 import {CurrenciesNamesTypes} from "../../bll/reducers/currency-reducer";
 import {ProductsType} from "../../bll/reducers/categories-reducer";
@@ -34,34 +34,40 @@ export class Header extends React.PureComponent<HeaderPropsType> {
     const {categoriesName, currencies, currentCurrency, cartOrders, activeCategory} = this.props
     console.log(cartOrders)
     return (
-      <header className={styles.header}>
+      <header className={s.header}>
         <nav>
-          <ul className={styles.navigation}>
+          <ul className={s.navigation}>
             {categoriesName.map((category: CategoryType, ind: number) => {
-              return <NavLink className={styles.navLink} key={ind + 314} to={`/${category.name}`}>
-                <li className={`${styles.navLinkName} ${ind === activeCategory ? styles.active : ''} `}
+              return <NavLink className={s.navLink} key={ind + 314} to={`/${category.name}`}>
+                <li className={`${s.navLinkName} ${ind === activeCategory ? s.active : ''} `}
                 onClick={() => this.setActiveCategory(ind)}>{category.name}</li>
               </NavLink>
             })}
           </ul>
         </nav>
         <div>
-          <img className={styles.logo} src={logo} alt='logo'/>
+          <img className={s.logo} src={logo} alt='logo'/>
         </div>
-        <div className={styles.headerActions}>
+        <div className={s.headerActions}>
           <div>
-            <select value={currentCurrency} onChange={(e) => this.setCurrency(e.target.value)}>
+            <select className={s.select} value={currentCurrency} onChange={(e) => this.setCurrency(e.target.value)}>
               {currencies.map((currency: string, ind: number) => {
                 return <option key={ind + 212} value={currency}>{currency}</option>
               })}
             </select>
           </div>
-          <img className={styles.cart} src={cart} alt='cart'/>
+          <span className={s.cart}>
+              <img className={s.cartImage} src={cart} alt="Cart"/>
+            {cartOrders.length ?
+              <span className={s.cartQuantity}>{cartOrders.length}</span> : null}
+            </span>
+
         </div>
       </header>
     )
   }
 }
+
 
 
 
