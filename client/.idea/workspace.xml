@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44bbff3d-961f-41d8-9e57-71e5d8b6ba2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+    <list default="true" id="4ad5da21-5d76-471b-9b68-73c2d45e8d2e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Header/Header.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Pdp/Pdp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Pdp/Pdp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/ProductItem/ProductItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ProductItem/ProductItem.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +14,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="22HB8arY9Ly9Pu3QP5uTNIuEABu" />
+  <component name="ProjectId" id="22dXzsronm9S7YaBUurCbwVpthy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,22 +24,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../scandiweb/src/components/Header/Header.tsx" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\appforscandi\client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="44bbff3d-961f-41d8-9e57-71e5d8b6ba2a" name="Changes" comment="" />
-      <created>1639484474175</created>
+      <changelist id="4ad5da21-5d76-471b-9b68-73c2d45e8d2e" name="Changes" comment="" />
+      <created>1640168709481</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1639484474175</updated>
-      <workItem from="1639484476025" duration="1066000" />
+      <updated>1640168709481</updated>
+      <workItem from="1640168711336" duration="871000" />
+      <workItem from="1640169609807" duration="6837000" />
     </task>
     <servers />
   </component>
@@ -60,5 +57,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

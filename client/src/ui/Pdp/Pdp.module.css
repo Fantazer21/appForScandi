@@ -1,10 +1,107 @@
 .containerPdp {
     display: flex;
 }
+
 .listImg {
     display: flex;
     flex-direction: column;
 }
+
 .productD {
+    display: flex;
+}
+
+.listImgItem {
+    width: 130px;
+    max-height: 180px;
+    margin-bottom: 33px;
+}
+
+.mainImg {
+    max-width: 610px;
+    max-height: 511px;
+}
+
+.mainImgWrapper {
+    width: 700px;
+    padding-left: 60px;
+    margin-right: 100px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    margin-bottom: 15px;
+}
+
+.brandName {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 27px;
+    margin-bottom: 43px;
+}
+
+.currencyStyles {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1D1F22;
+    line-height: 18px;
+    padding-top: 10px;
+}
+
+.priceStyles {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.buttonAdd {
+    width: 292px;
+    height: 52px;
+    padding: 16px 32px 16px 32px;
+    color: white;
+    background-color: #5ECE7B;
+    margin-top: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    border: none;
+    cursor: pointer;
+}
+
+.buttonAdd:hover {
+    background-color: black;
+}
+
+.buttonAdd.disabled {
+    opacity: 0.4;
+}
+
+.buttonAdd.disabled:hover {
+    background-color: #5ECE7B;
+}
+
+.attributesDescription {
+    display: flex;
+    flex-direction: column;
+}
+
+.spanItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 45px;
+    border: 1px solid #1D1F22;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.spanItem:hover {
+    background-color: black;
+    color: white;
+}
+
+.attributeMenu {
     display: flex;
 }

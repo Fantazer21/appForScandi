@@ -11,24 +11,38 @@ export type ProductsType = {
   category: string
   prices: Array<any>
   brand: string
+  attributes: AttributeSetType[]
 }
 
+type AttributeSetType = {
+  id: string,
+  name: string,
+  type: string,
+  items: AttributeType[]
+}
+type AttributeType = {
+  displayValue: string,
+  value: string,
+  id: string,
+}
 export type CategoryNameType = {
   name: string
 }
 
 type InitialStateType = {
   categories: Array<CategoryNameType>,
-  activeCategory: boolean,
+  activeCategory: number,
   productsClothes: Array<ProductsType>,
   productsTech: Array<ProductsType>,
   productDescription: ProductsType,
-  cartOrders: Array<ProductsType>
+  cartOrders: Array<ProductsType>,
+  currentPhotoPdp: string,
+  attribute: string
 }
 
 const initialState: InitialStateType = {
   categories: [],
-  activeCategory: false,
+  activeCategory: 0,
   productsClothes: [] as Array<ProductsType>,
   productsTech: [],
   productDescription: {
@@ -40,9 +54,11 @@ const initialState: InitialStateType = {
     category: 'string',
     prices: [],
     brand: 'string',
+    attributes: [],
   },
-  cartOrders: []
-
+  cartOrders: [],
+  currentPhotoPdp: '',
+  attribute: '',
 }
 
 export const categoriesReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
@@ -50,7 +66,7 @@ export const categoriesReducer = (state: InitialStateType = initialState, action
     case 'set-categories':
       return {...state, categories: action.categories}
     case 'set-active-category':
-      return {...state, activeCategory: true}
+      return {...state, activeCategory: action.activeCategory}
     case 'get-products-clothes':
       return {...state, productsClothes: action.productsClothes}
     case 'get-products-tech':
@@ -59,6 +75,15 @@ export const categoriesReducer = (state: InitialStateType = initialState, action
       return {...state, productDescription: action.productDescription}
     case 'add-to-cart':
       return {...state, cartOrders: [...state.cartOrders, action.cartOrders]}
+    case 'remove-from-cart':
+      return {
+        ...state,
+        cartOrders: [...state.cartOrders.filter(el => el.id === action.order).slice(0, -1), ...state.cartOrders.filter(el => el.id !== action.order)]
+      }
+    case 'change-active-pdp-photo':
+      return {...state, currentPhotoPdp: action.photo}
+    case "set-attribute":
+      return {...state, attribute: action.attr }
     default :
       return state
   }
@@ -71,7 +96,7 @@ export const setCategoriesAC = (categories: Array<CategoryNameType>) => ({
 } as const)
 type SetCategoryACType = ReturnType<typeof setCategoriesAC>
 
-export const setActiveCategoryAC = (activeCategory: boolean) => ({type: 'set-active-category', activeCategory} as const)
+export const setActiveCategoryAC = (activeCategory: number) => ({type: 'set-active-category', activeCategory} as const)
 type SetActiveCategoryACType = ReturnType<typeof setActiveCategoryAC>
 
 export const getProductsClothesAC = (productsClothes: Array<ProductsType>) => ({
@@ -98,6 +123,24 @@ export const addToCartAC = (order: ProductsType) => ({
 } as const)
 type addToCartACType = ReturnType<typeof addToCartAC>
 
+export const removeFromCartAC = (order: string) => ({
+  type: 'remove-from-cart',
+  order: order
+} as const)
+type removeFromCartACType = ReturnType<typeof removeFromCartAC>
+
+
+export const changeActivePhotoPdpAC = (photo: string) => ({
+  type: 'change-active-pdp-photo',
+  photo: photo
+} as const)
+type changeActivePhotoPdpACType = ReturnType<typeof changeActivePhotoPdpAC>
+
+export const setAttributeAC = (attr: string) => ({
+  type: 'set-attribute',
+  attr: attr
+} as const)
+type setAttributeACType = ReturnType<typeof setAttributeAC>
 
 type ActionsType =
   SetCategoryACType
@@ -106,6 +149,9 @@ type ActionsType =
   | GetProductsTechACType
   | SetProductDescriptionACType
   | addToCartACType
+  | removeFromCartACType
+  | changeActivePhotoPdpACType
+  | setAttributeACType
 
 //thunks
 
