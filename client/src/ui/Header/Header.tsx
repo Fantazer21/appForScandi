@@ -1,10 +1,12 @@
-import React, {FormEventHandler} from "react";
+import React from "react";
 import logo from '../../images/logo.png'
 import cart from '../../images/cart.png'
 import s from './Header.module.css'
 import {NavLink} from "react-router-dom";
 import {CurrenciesNamesTypes} from "../../bll/reducers/currency-reducer";
-import {ProductsType} from "../../bll/reducers/categories-reducer";
+import {ProductType} from "../../bll/reducers/categories-reducer";
+
+
 
 type CategoryType = {
   name: string
@@ -16,9 +18,11 @@ type HeaderPropsType = {
   currencies: Array<CurrenciesNamesTypes>,
   setCurrentCurrencyAC: (currency: CurrenciesNamesTypes) => void
   currentCurrency: CurrenciesNamesTypes,
-  cartOrders: Array<ProductsType>,
+  cartOrders: Array<ProductType>,
   activeCategory: number,
-  setActiveCategory: (num: number) => void
+  setActiveCategory: (num: number) => void,
+  setToggle: (val: boolean) => void,
+  toggleCart: boolean
 }
 
 export class Header extends React.PureComponent<HeaderPropsType> {
@@ -31,8 +35,7 @@ export class Header extends React.PureComponent<HeaderPropsType> {
   }
 
   render() {
-    const {categoriesName, currencies, currentCurrency, cartOrders, activeCategory} = this.props
-    console.log(cartOrders)
+    const {categoriesName, currencies, currentCurrency, cartOrders, activeCategory, setToggle} = this.props
     return (
       <header className={s.header}>
         <nav>
@@ -56,8 +59,8 @@ export class Header extends React.PureComponent<HeaderPropsType> {
               })}
             </select>
           </div>
-          <span className={s.cart}>
-              <img className={s.cartImage} src={cart} alt="Cart"/>
+          <span onClick={() => setToggle(!this.props.toggleCart)} className={s.cart}>
+              <img className={s.cartImage}  src={cart} alt="Cart"/>
             {cartOrders.length ?
               <span className={s.cartQuantity}>{cartOrders.length}</span> : null}
             </span>

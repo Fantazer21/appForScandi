@@ -15,6 +15,7 @@
     width: 130px;
     max-height: 180px;
     margin-bottom: 33px;
+    cursor: pointer;
 }
 
 .mainImg {

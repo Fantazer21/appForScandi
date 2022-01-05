@@ -1,25 +1,23 @@
 import React from "react";
 import {CurrenciesNamesTypes} from "../../bll/reducers/currency-reducer";
-import {ProductsType} from "../../bll/reducers/categories-reducer";
+import {ProductType} from "../../bll/reducers/categories-reducer";
 import s from './ProductItem.module.css'
-import {NavLink, Route} from "react-router-dom";
-import {Pdp} from "../Pdp/Pdp";
+import {NavLink} from "react-router-dom";
 
 type ProductItemType = {
   currentCurrency: CurrenciesNamesTypes,
-  products: Array<ProductsType>,
-  setProductDescription: (productDescription: ProductsType) => void,
+  products: Array<ProductType>,
+  setProductDescription: (productDescription: ProductType) => void,
   title: string
 }
 
 export class ProductItem extends React.PureComponent<ProductItemType> {
-  setProdDesc(productDescription: ProductsType) {
+  setProdDesc(productDescription: ProductType) {
     this.props.setProductDescription(productDescription)
   }
 
   render() {
     const {currentCurrency, products, title} = this.props
-    console.log(products)
     return (
       <>
         <div className={s.title}>{title}</div>
