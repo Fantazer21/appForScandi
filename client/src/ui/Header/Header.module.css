@@ -1,7 +1,7 @@
 .header {
     display: flex;
     justify-content: space-between;
-    margin: 30px 0px;
+    margin: 30px 1px;
     align-items: center;
 }
 .navigation {
@@ -43,6 +43,7 @@
     font-size: 16px;
     height: 20px;
     font-weight: 600;
+    cursor: pointer;
 }
 .navLinkName.active {
     color: #5ECE7B;
@@ -50,6 +51,7 @@
 .select {
     width: 56px;
     height: 29px;
+    cursor: pointer;
 }
 
 .cart {
@@ -76,7 +78,3 @@
     color: #FFFFFF;
     border-radius: 60px;
 }
-
-
-
-

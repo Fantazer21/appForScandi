@@ -1,37 +1,39 @@
 import React from "react";
 import s from './Pdp.module.css'
-import {ProductsType} from "../../bll/reducers/categories-reducer";
+import {ProductType} from "../../bll/reducers/categories-reducer";
 import parse from 'html-react-parser'
 
 type PdpPropsType = {
   currentCurrency: string
-  proDesc: ProductsType
-  addToCart: (order: ProductsType) => void
+  proDesc: ProductType
+  addToCart: (order: ProductType) => void
   changePhoto: (ph: string) => void
   activePhoto: string
   attribute: string
   setAttribute: (val: string) => void
+  cartOrders: Array<ProductType>
 }
 
 export class Pdp extends React.PureComponent<PdpPropsType> {
 
-  addProductToCart(order: ProductsType) {
-    this.props.addToCart(order)
-    this.props.setAttribute('dsds')
+  addProductToCart(order: ProductType, cartOrders: Array<ProductType>) {
+    if (cartOrders.find(el => el.id === order.id) === undefined) {
+      this.props.addToCart({...order, quantity: 1})
+    } else alert('You already added this item')
   }
 
   componentDidMount() {
     this.props.changePhoto(this.props.proDesc.gallery[0])
   }
 
+
   render() {
-    console.log(this.props.proDesc)
     const {currentCurrency, proDesc} = this.props
     return (
       <div className={s.containerPdp}>
         <div className={s.listImg}>
-          {proDesc.gallery.map(i => {
-            return <img className={s.listImgItem} src={`${i}`}
+          {proDesc.gallery.map((i, ind) => {
+            return <img key={ind.toString()} className={s.listImgItem} src={`${i}`} alt='text'
                         onMouseOver={() => this.props.changePhoto(i)}/>
           })}
         </div>
@@ -43,25 +45,23 @@ export class Pdp extends React.PureComponent<PdpPropsType> {
             <div className={s.title}>
               {proDesc.name}</div>
             <div className={s.brandName}>{proDesc.brand}</div>
-
-
             <div className={s.attributesTitle}>
               <div className={s.attributesDescription}>
-                {proDesc.attributes.map(el => {
+                {proDesc.attributes.map((el,ind) => {
                   if (el.type === 'text') {
-                    return <div>
+                    return <div key={ind+1212}>
                       {el.name}
                       <div className={s.attributeMenu}>
-                        {el.items.map(el => <div><span style={({background: `${el.value}`})}
-                                                       className={s.spanItem}>{el.value}</span></div>)}
+                        {el.items.map((el, ind) => <div key={ind+34}><span
+                          style={({background: `${el.value}`})}
+                          className={s.spanItem}>{el.value}</span></div>)}
                       </div>
-
                     </div>
                   } else {
-                    return <div>
+                    return <div key={ind+2}>
                       <div className={s.attributeMenu}>
-                        {el.items.map(el => <div><span style={({background: `${el.value}`})}
-                                                       className={s.spanItem}></span></div>)}
+                        {el.items.map((el, ind) => <div key={ind+32}> <span style={({background: `${el.value}`})}
+                                                        className={s.spanItem}> </span></div>)}
                       </div>
                     </div>
                   }
@@ -72,7 +72,7 @@ export class Pdp extends React.PureComponent<PdpPropsType> {
             <div
               className={s.currencyStyles}>{currentCurrency} {proDesc.prices.find(pr => (pr.currency === currentCurrency)).amount} </div>
             <button className={`${s.buttonAdd} ${proDesc.inStock ? '' : s.disabled}`}
-                    onClick={() => this.addProductToCart(proDesc)}
+                    onClick={() => this.addProductToCart(proDesc, this.props.cartOrders)}
                     disabled={!proDesc.inStock}>Add to cart
             </button>
             <div>
@@ -81,10 +81,6 @@ export class Pdp extends React.PureComponent<PdpPropsType> {
           </div>
         </div>
       </div>
-
     )
   }
 }
-
-
-

@@ -1,86 +1,94 @@
 import React from "react";
 import s from './Cart.module.css'
 import {CurrenciesNamesTypes} from "../../bll/reducers/currency-reducer";
-import {ProductsType} from "../../bll/reducers/categories-reducer";
+import {ProductDescriptionWithQuantityType, ProductType} from "../../bll/reducers/categories-reducer";
 
 type CartPropsType = {
   currentCurrency: CurrenciesNamesTypes,
-  cartOrders: Array<ProductsType>,
-  addToCart: (order: ProductsType) => void
+  cartOrders: Array<ProductType>,
+  addToCart: (order: ProductType) => void
   removeFromCart: (order: string) => void
+  incQuantity: (id: string) => void
+  decQuantity: (id: string) => void
 }
 
 export default class Cart extends React.PureComponent<CartPropsType> {
-  addProductToCart(order: ProductsType) {
-    this.props.addToCart(order)
+  addProductToCart(order: ProductType, cartOrders: Array<ProductType>) {
+    const product = cartOrders.find(el => el.id === order.id)
+    if (!product) {
+      alert("You are already added this item")
+    } else {
+      if (product) {
+        const productWithQuantity: ProductDescriptionWithQuantityType = {...order, quantity: 1}
+        this.props.addToCart(productWithQuantity)
+      }
+    }
   }
 
-  removeFromProductCart(order: string) {
-    // console.log(this.props.cartOrders.filter(el => el.id === order).shift())
-    console.log(order)
-
-    this.props.removeFromCart(order)
-    console.log(this.props.cartOrders)
+  removeFromProductCart(id: string, el: ProductType) {
+    if (el.quantity === 1) {
+      this.props.removeFromCart(id)
+    } else {
+      this.props.decQuantity(id)
+    }
   }
 
   render() {
     const {currentCurrency, cartOrders} = this.props
     return (
-
       <div>
         <h1>Cart</h1>
         <div className={s.cartList}>
-          {cartOrders.filter((value, index, self) =>
-              index === self.findIndex((t) => (
-                t.id === value.id
-              ))
-          ).map(el => <div className={s.CartProduct}>
-              <div className={s.CartProductDescription}>
-                <div className={s.CartProductTitle}>
-                  <h2 className={s.brandTitle}>
-                    {el.brand}
-                  </h2>
-                  <div className={s.brandName}>{el.name}</div>
-                  <div
-                    className={s.currencyStyles}> {currentCurrency} {el.prices.find(pr => (pr.currency === currentCurrency)).amount}</div>
-                  <div className={s.attributesDescription}>
-                    {el.attributes.map(el => {
-                      if (el.type === 'text') {
-                        return <div>
-                          {el.name}
-                          <div className={s.attributeMenu}>
-                            {el.items.map(el => <div><span style={({background: `${el.value}`})}
-                                                           className={s.spanItem}>{el.value}</span></div>)}
+          {cartOrders.map((el,ind) => {
+            if(el.quantity > 0) {
+              return <div key={ind} className={s.CartProduct}>
+                <div className={s.CartProductDescription}>
+                  <div className={s.CartProductTitle}>
+                    <h2 className={s.brandTitle}>
+                      {el.brand}
+                    </h2>
+                    <div className={s.brandName}>{el.name}</div>
+                    <div
+                      className={s.currencyStyles}> {currentCurrency} {el.prices.find(pr => (pr.currency === currentCurrency)).amount}</div>
+                    <div className={s.attributesDescription}>
+                      {el.attributes.map((el,key) => {
+                        if (el.type === 'text') {
+                          return <div key={key+232}>
+                            {el.name}
+                            <div className={s.attributeMenu}>
+                              {el.items.map((el, ind) => <div key={ind+2323}><span style={({background: `${el.value}`})}
+                                                             className={s.spanItem}>{el.value}</span></div>)}
+                            </div>
                           </div>
-                        </div>
-                      } else {
-                        return <div>
-                          <div className={s.attributeMenu}>
-                            {el.items.map(el => <div><span style={({background: `${el.value}`})}
-                                                           className={s.spanItem}/></div>)}
+                        } else {
+                          return <div key={ind+2322}>
+                            <div className={s.attributeMenu}>
+                              {el.items.map((el,key) => <div key={key+32423}><span style={({background: `${el.value}`})}
+                                                             className={s.spanItem}/></div>)}
+                            </div>
                           </div>
-                        </div>
-                      }
-                    })}
+                        }
+                      })}
+                    </div>
                   </div>
-
+                </div>
+                <div className={s.rightSection}>
+                  <div className={s.Buttons}>
+                    <div>
+                      <button className={s.buttonIncDec} onClick={() => this.props.incQuantity(el.id)}>+</button>
+                    </div>
+                    <div className={s.quantityOrders}>{el.quantity}</div>
+                    <div>
+                      <button className={s.buttonIncDec} onClick={() => this.removeFromProductCart(el.id, el)}>-</button>
+                    </div>
+                  </div>
+                  <div className={s.imgWrapper}><img className={s.imgDesc} src={`${el.gallery[0]}`} alt="descCard"/></div>
                 </div>
               </div>
-              <div className={s.rightSection}>
-                <div className={s.Buttons}>
-                  <div>
-                    <button className={s.buttonIncDec} onClick={() => this.addProductToCart(el)}>+</button>
-                  </div>
+            }
+            else return null
+          }
 
-                  <div className={s.quantityOrders}>{cartOrders.filter(pr => pr.id === el.id).length}</div>
-                  <div>
-                    <button className={s.buttonIncDec} onClick={() => this.removeFromProductCart(el.id)}>-</button>
-                  </div>
-
-                </div>
-                <div className={s.imgWrapper}><img className={s.imgDesc}  src={`${el.gallery[0]}`} alt="descCard"/></div>
-              </div>
-            </div>
           )}
         </div>
       </div>

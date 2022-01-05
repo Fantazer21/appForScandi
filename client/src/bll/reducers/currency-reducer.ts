@@ -1,6 +1,7 @@
 import {Dispatch} from "redux";
 import {query, request} from "../../dal/apiRequest";
 import {Query} from "@tilework/opus";
+
 export type  CurrenciesNamesTypes = 'USD' | 'GBP' | 'AUD' | 'JPY' | 'RUB'
 
 type InitialStateType = {
@@ -14,12 +15,16 @@ const initialState: InitialStateType = {
   currentCurrency: 'USD',
 }
 
+enum CURRENCY {
+  SET_CURRENCY = 'set-currencies',
+  SET_CURRENT_CURRENCY = 'set-current-currency',
+}
+
 export const currencyReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
   switch (action.type) {
-    case 'set-currencies':
+    case CURRENCY.SET_CURRENCY:
       return {...state, currencies: action.currency}
-    case 'set-current-currency':
-      console.log(state.currentCurrency)
+    case CURRENCY.SET_CURRENT_CURRENCY:
       return {...state, currentCurrency: action.currentCurrency}
     default :
       return state
@@ -30,7 +35,10 @@ export const currencyReducer = (state: InitialStateType = initialState, action: 
 export const setCurrenciesAC = (currency: CurrenciesArrayType) => ({type: 'set-currencies', currency} as const)
 type SetCurrencyACType = ReturnType<typeof setCurrenciesAC>
 
-export const setCurrentCurrencyAC = (currentCurrency: CurrenciesNamesTypes) => ({type: 'set-current-currency', currentCurrency} as const)
+export const setCurrentCurrencyAC = (currentCurrency: CurrenciesNamesTypes) => ({
+  type: 'set-current-currency',
+  currentCurrency
+} as const)
 type SetCurrentCurrencyACType = ReturnType<typeof setCurrentCurrencyAC>
 
 type ActionsType = SetCurrencyACType | SetCurrentCurrencyACType
@@ -41,7 +49,7 @@ export const setCurrenciesThunkCreator = () => (dispatch: Dispatch) => {
 
   const currenciesData = query(new Query(request.getCurrencies))
   currenciesData.then(
-    (res: any) => { //Add type later
+    (res: any) => {
       dispatch(setCurrenciesAC(res.currencies))
     }
   )

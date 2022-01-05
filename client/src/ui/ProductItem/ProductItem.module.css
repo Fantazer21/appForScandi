@@ -10,6 +10,7 @@
 .productMap {
     display: flex;
     flex-wrap: wrap;
+    border-radius: 10px;
 }
 .compProdCard{
     display: flex;
